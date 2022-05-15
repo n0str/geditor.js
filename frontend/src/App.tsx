@@ -1,12 +1,12 @@
 import './App.css';
 import api from './http';
 import {AuthResponse} from './types/auth-response';
+import AppRoutes from "./components/routes/AppRoutes";
 
 function App() {
-  api.post<AuthResponse>('/auth/register');
+  // api.post<AuthResponse>('/auth/register');
   return (
-    <div className="App">
-    </div>
+    <AppRoutes/>
   );
 }
 
