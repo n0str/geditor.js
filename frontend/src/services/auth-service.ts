@@ -2,7 +2,7 @@ import {AxiosResponse} from "axios";
 import {AuthResponse} from "../types/auth-response";
 import api from "../http/index";
 import {AppDispatch} from "../store";
-import {setError, setIsAuth, setUser} from "../store/reducers/auth/action-creators";
+import {setError, setIsAuth, setUser, setAccessToken} from "../store/reducers/auth/action-creators";
 
 export default class AuthService{
     static async joinWorkspace(workspace: string): Promise<AxiosResponse<AuthResponse>>{
@@ -14,9 +14,10 @@ export default class AuthService{
     }
 
     static authorizeUser = (dispatch: AppDispatch, response: any) => {
-        localStorage.setItem('code', response.data.accessToken)
+        localStorage.setItem('accessToken', response.data.accessToken)
         dispatch(setIsAuth(true))
         dispatch(setUser(response.data.user))
+        dispatch(setAccessToken(response.data.accessToken))
         dispatch(setError(''))
     }
 

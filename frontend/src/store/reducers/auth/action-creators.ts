@@ -1,5 +1,5 @@
 import {IUser} from "../../../types/user";
-import {AuthActionsEnum, SetError, SetIsAuth, SetUserAction} from "./types";
+import {AuthActionsEnum, SetError, SetIsAuth, SetAccessToken, SetUserAction} from "./types";
 import {AppDispatch} from "../../index";
 import AuthService from "../../../services/auth-service";
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
@@ -14,6 +14,10 @@ export const setError = (error: string): SetError => {
 
 export const setIsAuth = (auth: boolean): SetIsAuth => {
     return {type: AuthActionsEnum.SET_IS_AUTH, payload: auth}
+}
+
+export const setAccessToken = (accessToken: string): SetAccessToken => {
+    return {type: AuthActionsEnum.SET_ACCESS_TOKEN, payload: accessToken}
 }
 
 export const joinWorkspace = (workspace: string) => async (dispatch: AppDispatch) => {

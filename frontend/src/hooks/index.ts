@@ -3,7 +3,7 @@ import {RootState, AppDispatch} from "../store";
 import React from "react";
 
 export const useAuth = () => {
-    return !!localStorage.getItem('code');
+    return !!localStorage.getItem('accessToken');
 }
 
 export const useTitle = (title: string): void => {

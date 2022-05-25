@@ -6,7 +6,15 @@ const rootReducer = combineReducers({
     auth: authReducer
 })
 
-export const store = createStore(rootReducer, applyMiddleware(thunk))
+const persistedState = localStorage.getItem('reduxState') 
+                       ? JSON.parse(localStorage.getItem('reduxState')||"")
+                       : {}
+
+export const store = createStore(rootReducer, persistedState, applyMiddleware(thunk))
+
+store.subscribe(()=>{
+    localStorage.setItem('reduxState', JSON.stringify(store.getState()))
+})
 
 export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch
