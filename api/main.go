@@ -48,6 +48,9 @@ func main() {
 			User:        IUser{},
 		})
 	})
+	e.DELETE("/auth/logout", func(c echo.Context) (err error) {
+		return c.JSON(http.StatusOK, &AuthResponse{})
+	})
 	e.Logger.Fatal(e.Start(":9000"))
 }
 

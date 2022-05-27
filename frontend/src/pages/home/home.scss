@@ -1,9 +1,19 @@
-.home{
+.home {
     justify-content: center;
-    margin-top: 25px;
     margin-left: auto;
     margin-right: auto;
     width: 50%;
-    padding: 15px;
+    padding: 15px 0;
     border: 1px dotted #CCC;
+}
+
+.container {
+}
+
+.navbar {
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    padding: 15px 0;
 }

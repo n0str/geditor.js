@@ -32,9 +32,10 @@ export const joinWorkspace = (workspace: string) => async (dispatch: AppDispatch
 export const logout = () => async (dispatch: AppDispatch) => {
     try{
         await AuthService.logout()
-        localStorage.removeItem('workspace')
         dispatch(setUser({} as IUser))
+        dispatch(setIsAuth(false))
+        dispatch(setAccessToken(""))
     }catch(e: any){
-        dispatch(setError(e.response.data.message))
+        dispatch(setError(e.response))
     }
 }

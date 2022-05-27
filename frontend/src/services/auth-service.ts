@@ -14,7 +14,6 @@ export default class AuthService{
     }
 
     static authorizeUser = (dispatch: AppDispatch, response: any) => {
-        localStorage.setItem('accessToken', response.data.accessToken)
         dispatch(setIsAuth(true))
         dispatch(setUser(response.data.user))
         dispatch(setAccessToken(response.data.accessToken))

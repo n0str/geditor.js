@@ -2,6 +2,8 @@ import {TypedUseSelectorHook, useSelector, useDispatch} from "react-redux";
 import {RootState, AppDispatch} from "../store";
 import React from "react";
 
+
+
 export const useAuth = () => {
     return !!localStorage.getItem('accessToken');
 }
